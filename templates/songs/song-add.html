@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+
+{% block main_content %}
+    <div class="edit-delete edit-song">
+        <h2>Add Song</h2>
+
+
+        <form action="{% url 'song_add' %}" method="post">
+            {{ form.as_p }}
+
+            <!-- Add Song Button -->
+            <button class="add-btn" type="submit">Add Song</button>
+            {% csrf_token %}
+
+        </form>
+
+        <!-- End Add Song Form -->
+
+    </div>
+{% endblock %}

@@ -2,56 +2,17 @@
 
 {% block main_content %}
     <div class="container">
-        <img id="song-cover" src="https://img.jakpost.net/c/2020/03/31/2020_03_31_91307_1585623595._large.jpg" alt="Song Cover">
-        <h1>Title of the Song</h1>
-        <h2>Artist Name</h2>
+        <img id="song-cover" src="{{ song.cover_image }}" alt="Song Cover">
+        <h1>{{ song.title }}</h1>
+        <h2>
+        {% for artist in song.artists.all %}
+            {{ artist.name }}{% if not forloop.last %}, {% endif %}
+        {% endfor %}
+        </h2>
 
             <div id="lyrics">
                 <p>
-                    Common love isn't for us
-                We created something phenomenal
-                Don't you agree?
-                Don't you agree?
-                You got me feeling diamond rich
-                Nothing on this planet compares to it
-                Don't you agree?
-                Don't you agree?
-                All night, I'll riot with you
-                I know you got my back and you know I got you
-                So come on, come on, come on
-                Let's get physical
-                Lights out, follow the noise
-                Baby, keep on dancing like you ain't got a choice
-                So come on, come on, come on
-                Let's get physical
-                Let's get physical
-                Come on, let's get physical
-                Adrenaline keeps on rushing in
-                Love the simulation we're dreaming in
-                Don't you agree?
-                Don't you agree?
-                I don't wanna live another life
-                'Cause this one's pretty nice
-                Living it up
-                Who needs to go to sleep when I got you next to me?
-                All night, I'll riot with you
-                I know you got my back and you know I got you
-                So come on, come on, come on
-                Let's get physical
-                Lights out, follow the noise
-                Baby, keep on dancing like you ain't got a choice
-                So come on, come on, come on
-                Let's get physical
-                Let's get physical
-                Let's get physical
-                Let's get physical
-                Physical
-                Let's get physical
-                Who needs to go to sleep when I got you next to me?
-                Lights out, follow the noise
-                Baby, keep on dancing like you ain't got a choice
-                So come on, come on, come on
-                Let's get physical
+                    {{ song.lyrics }}
                 </p>
             </div>
     </div>

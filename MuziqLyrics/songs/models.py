@@ -30,3 +30,5 @@ class Song(models.Model):
         max_length=20,
         choices=GENRE_CHOICES,
     )
+
+    cover_image = models.URLField(default='https://buffer.com/library/content/images/size/w1200/2023/10/free-images.jpg')
