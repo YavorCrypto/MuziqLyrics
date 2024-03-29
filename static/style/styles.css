@@ -89,6 +89,12 @@ footer {
     height: auto;
 }
 
+.image-wrap img {
+    width: 200px; /* Set the desired width */
+    height: 200px; /* Set the desired height */
+    object-fit: cover; /* Ensure the entire image is visible within the fixed dimensions */
+}
+
 #song-cover {
     width: 300px;
     height: auto;

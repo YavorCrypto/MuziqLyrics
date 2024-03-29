@@ -11,3 +11,6 @@ class Artist(models.Model):
     birth_date = models.DateField(null=True, blank=True)
 
     image = models.ImageField(upload_to='artist_images/', null=True, blank=True)
+
+    def __str__(self):
+        return self.name
