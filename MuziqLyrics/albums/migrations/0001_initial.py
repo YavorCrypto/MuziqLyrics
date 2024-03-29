@@ -8,17 +8,17 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
+        ('artists', '0001_initial'),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Artist',
+            name='Album',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=100)),
-                ('bio', models.TextField()),
-                ('birth_date', models.DateField(blank=True, null=True)),
-                ('image', models.ImageField(blank=True, null=True, upload_to='artist_images/')),
+                ('title', models.CharField(max_length=100)),
+                ('release_date', models.DateField(auto_now_add=True)),
+                ('artists', models.ManyToManyField(to='artists.artist')),
             ],
         ),
     ]

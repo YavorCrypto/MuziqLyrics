@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'MuziqLyrics.web',
     'MuziqLyrics.songs',
     'MuziqLyrics.artists',
+    'MuziqLyrics.albums',
 ]
 
 MIDDLEWARE = [

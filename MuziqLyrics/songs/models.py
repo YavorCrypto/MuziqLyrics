@@ -1,5 +1,6 @@
 from django.db import models
 
+from MuziqLyrics.albums.models import Album
 from MuziqLyrics.artists.models import Artist
 
 
@@ -24,11 +25,13 @@ class Song(models.Model):
 
     lyrics = models.TextField()
 
-    release_date = models.DateField()
+    release_date = models.DateField(auto_now_add=True)
 
     genre = models.CharField(
         max_length=20,
         choices=GENRE_CHOICES,
     )
 
-    cover_image = models.URLField(default='https://buffer.com/library/content/images/size/w1200/2023/10/free-images.jpg')
+    cover_image = models.URLField(default='https://gibus.be/wp-content/uploads/woocommerce-placeholder-1000x1000.png')
+
+    album = models.ForeignKey(Album,blank=True, null=True, on_delete=models.CASCADE)

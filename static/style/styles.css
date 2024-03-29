@@ -90,9 +90,15 @@ footer {
 }
 
 .image-wrap img {
-    width: 200px; /* Set the desired width */
-    height: 200px; /* Set the desired height */
+    width: 150px; /* Set the desired width */
+    height: 150px; /* Set the desired height */
     object-fit: cover; /* Ensure the entire image is visible within the fixed dimensions */
+}
+.card-h1 h1 {
+    max-width: 200px; /* Set the maximum width in pixels */
+    white-space: nowrap; /* Prevent wrapping of text */
+    overflow: hidden; /* Hide any overflow text */
+    text-overflow: ellipsis; /* Display ellipsis (...) for overflow text */
 }
 
 #song-cover {

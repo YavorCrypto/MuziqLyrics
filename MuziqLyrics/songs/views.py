@@ -3,15 +3,14 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views import generic as views
 
-from MuziqLyrics.songs.forms import SongDeleteForm
 from MuziqLyrics.songs.models import Song
 
 
 # Create your views here.
 
 
-def song_details(request):
-    return render(request,'songs/song-details.html')
+# def song_details(request):
+#     return render(request,'songs/song-details.html')
 
 
 class SongDetailsView(views.DetailView):
@@ -21,7 +20,7 @@ class SongDetailsView(views.DetailView):
 
 class SongAddView(views.CreateView):
     queryset = Song.objects.all()
-    fields = ('title','artists','lyrics','release_date','genre')
+    fields = ('title','artists','lyrics','album','genre','cover_image')
     template_name = 'songs/song-add.html'
     success_url = reverse_lazy('index')
 
@@ -39,13 +38,20 @@ class SongAddView(views.CreateView):
 #         return kwargs
 
 
+class SongEditView(views.UpdateView):
+    queryset = Song.objects.all()
+    template_name = 'songs/song-edit.html'
+    fields = ('title', 'lyrics', 'genre', 'cover_image')
+    success_url =reverse_lazy('index')
+
+
 class SongDeleteView(views.DeleteView):
     queryset = Song.objects.all()
     template_name = 'songs/song-delete.html'
 
     form_class = modelform_factory(
         Song,
-        fields=('title', 'artists','genre', 'release_date'),
+        fields=('title', 'artists','genre','album'),
     )
 
     success_url = reverse_lazy('index')

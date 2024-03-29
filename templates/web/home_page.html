@@ -16,14 +16,15 @@
                     alt="testbatio"
             />
           </div>
-
-          <h3>{{ song.title }}</h3>
-
-          <h1>
+        <div class="card-h1">
+          <h1>{{ song.title }}</h1>
+        </div>
+          <h3>
         {% for artist in song.artists.all %}
-            {{ artist.name }}{% if not forloop.last %}, {% endif %}
+            {{ artist.name }}{% if not forloop.last %} & {% endif %}
+
         {% endfor %}
-        </h1>
+        </h3>
           <div class="details-buttons">
             <a href="{% url 'song_details' pk=song.pk %}" class="details-btn">Details</a>
           </div>
