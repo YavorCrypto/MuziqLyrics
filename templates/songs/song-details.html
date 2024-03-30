@@ -4,6 +4,7 @@
     <div class="container">
         <img id="song-cover" src="{{ song.cover_image }}" alt="Song Cover">
         <h1>{{ song.title }}</h1>
+
         <h2>
         {% for artist in song.artists.all %}
             {{ artist.name }}{% if not forloop.last %}, {% endif %}
