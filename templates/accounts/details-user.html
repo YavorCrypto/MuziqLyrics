@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block main_content %}
+      <div class="profile">
+        <!-- Start Profile Personal Data Section -->
+        <div class="profile-data">
+          <div class="profile_img">
+            <div class="image">
+                {% if object.image %}
+              <!-- Profile Image -->
+              <img src="{{object.profile_picture}}" alt="img8" />
+                {% else %}
+                <img src="{% static '/images/person.png' %}" alt="img8" />
+                {% endif %}
+            </div>
+          </div>
+          <div class="personal">
+            <div class="edit">
+              <!-- User Username -->
+              <p>{{ object.user.username }}</p>
+
+              <!-- IF the viewer is the owner of the profile -->
+              <!-- Link to Edit Profile Page -->
+
+{#               {% if object.pk == request.user.pk %}#}
+{#              <a href="{% url 'edit profile' pk=object.pk %}">#}
+{#                <img#}
+{#                  class="edit-img"#}
+{#                  src="{% static '/images/edit-pen-icon-6.jpg' %}"#}
+{#                  alt="edit button"#}
+{#                />#}
+{#              </a>#}
+{##}
+{#              <!-- Link to Delete Profile Page -->#}
+{#              <a href="{% url 'delete profile' pk=object.pk%}">#}
+{#                <img#}
+{#                  class="bin-img"#}
+{#                  src="{% static '/images/icon-remove-22.jpg' %}"#}
+{#                  alt="bin button"#}
+{#                />#}
+{#              </a>#}
+{#                {% endif %}#}
+              <!-- End IF the viewer is the owner of the profile -->
+            </div>
+            <div class="data">
+              <!-- Total Number of Photos by the User -->
+              <p>17 SONGS</p>
+
+              <!-- Total Number of Pets owned by the User -->
+              <p>2 ALBUMS</p>
+
+              <!-- Total Number of Likes for the User -->
+              <p>19990 LISTENERS</p>
+            </div>
+          {% if object.full_name %}
+            <!-- User First and Last Name IF Added -->
+            <h3 class="names">{{ object.full_name }}</h3>
+          {% endif %}
+
+          {% if object.date_of_birth %}
+              {{ object.date_of_birth }}
+          {% endif %}
+
+            <!-- User Email Address -->
+            <p class="email">{{ object.email }}</p>
+
+          </div>
+        </div>
+        <!-- End Profile Personal Data Section -->
+
+
+        <!-- IF NO Posts Show No Post Image -->
+
+        <img
+          class="no-posts"
+          src="{% static '/images/no_posts.png' %}"
+          alt="no posts"
+        />
+      </div>
+
+      <!-- End Profile Details Section -->
+{% endblock %}
+

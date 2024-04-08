@@ -12,11 +12,16 @@
     <header>
         <nav>
             <ul>
+
                 <li><a href="{% url 'index' %}">Home</a></li>
-                <li><a href="#">Login</a></li>
-                <li><a href="#">Register</a></li>
-                <li><a href="#">Charts</a></li>
-                <li><a href="{% url 'song_add' %}">Add Song</a></li>
+
+                {% if request.user.is_authenticated %}
+                    <li><a href="{% url 'account_signout' %}">Sign Out</a></li>
+                    <li><a href="{% url 'song_add' %}">Add Song</a></li>
+                {% else %}
+                    <li><a href="{% url 'account_signin' %}">Sign In</a></li>
+                    <li><a href="{% url 'account_signup' %}">Sign Up</a></li>
+                {% endif %}
             </ul>
         </nav>
     </header>

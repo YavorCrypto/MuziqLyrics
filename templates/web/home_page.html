@@ -21,7 +21,7 @@
         </div>
           <h3>
         {% for artist in song.artists.all %}
-            {{ artist.name }}{% if not forloop.last %} & {% endif %}
+            {{ artist.user.username }}{% if not forloop.last %} & {% endif %}
 
         {% endfor %}
         </h3>

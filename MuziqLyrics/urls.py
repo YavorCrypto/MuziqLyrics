@@ -20,5 +20,6 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('MuziqLyrics.web.urls')),
-    path('song/', include('MuziqLyrics.songs.urls'))
+    path('song/', include('MuziqLyrics.songs.urls')),
+    path('accounts/', include('MuziqLyrics.accounts.urls'))
 ]

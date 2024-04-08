@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load placeholders %}
+
+{% block main_content %}
+    <div class="login-register-div">
+        <div class="login-register-box">
+            <h1>MUZIQ</h1>
+
+            <!-- Start Register Form -->
+            <form action="{% url 'account_signup' %}" method="post">
+                <p>
+                    {{ form.username|placeholder:"Username"}}
+                </p>
+                <p>
+                    {{ form.password1|placeholder:"Password" }}
+                </p>
+                <p>
+                    {{ form.password2|placeholder:"Confirm password" }}
+                </p>
+                <p>
+                    {{ form.account_type|placeholder:"Account type" }}
+                </p>
+
+                <!-- Register Button -->
+                <button type="submit">Register</button>
+                {% csrf_token %}
+            </form>
+            <!-- End Register Form -->
+
+        </div>
+        <div class="second-option">
+
+            <!-- Link to Login Page -->
+            <p>Have an account? <a href="{% url 'account_signin' %}">Log in</a></p>
+        </div>
+    </div>
+{% endblock %}

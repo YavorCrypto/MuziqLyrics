@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load placeholders %}
+
+{% block main_content %}
+    <div class="login-register-div">
+        <div class="login-register-box">
+            <h1>MUZIQ</h1>
+
+            <!-- Start Login Form-->
+            <form action="{% url 'account_signin' %}?next={{ next }}" method="post">
+                <p>
+                    {{ form.username|placeholder:"Username"}}
+                </p>
+                <p>
+                    {{ form.password|placeholder:"Password" }}
+                </p>
+
+                <!-- Login Button-->
+                <button type="submit">Log in</button>
+                {% csrf_token %}
+            </form>
+            <!-- End Login Form -->
+
+        </div>
+        <div class="second-option">
+
+            <!-- Link to Register Page-->
+            <p>Don't have an account? <a href="{% url 'account_signup' %}">Register</a></p>
+        </div>
+    </div>
+{% endblock %}
