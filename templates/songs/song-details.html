@@ -1,13 +1,35 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block main_content %}
     <div class="container">
         <img id="song-cover" src="{{ song.cover_image }}" alt="Song Cover">
         <h1>{{ song.title }}</h1>
 
+    {% for artist in song.artists.all %}
+        {% if request.user.username == artist.user.username %}
+              <a href="{% url 'song_edit' pk=song.pk %}">
+                <img
+                  class="edit-img"
+                  src="{% static '/images/edit-pen-icon-6.jpg' %}"
+                  alt="edit button"
+                />
+              </a>
+
+              <!-- Link to Delete Profile Page -->
+              <a href="{% url 'song_delete' pk=song.pk%}">
+                <img
+                  class="bin-img"
+                  src="{% static '/images/icon-remove-22.jpg' %}"
+                  alt="bin button"
+                />
+              </a>
+                {% endif %}
+        {% endfor %}
+
         <h2>
         {% for artist in song.artists.all %}
-            {{ artist.name }}{% if not forloop.last %}, {% endif %}
+            {{ artist.user.username }}{% if not forloop.last %}, {% endif %}
         {% endfor %}
         </h2>
 

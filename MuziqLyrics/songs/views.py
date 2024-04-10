@@ -58,7 +58,7 @@ class SongAddView(ArtistRequiredMixin,views.CreateView):
 class SongEditView(OwnerRequiredMixin,views.UpdateView):
     queryset = Song.objects.all()
     template_name = 'songs/song-edit.html'
-    fields = ('title', 'lyrics', 'genre', 'cover_image')
+    fields = ('title','artists' ,'lyrics', 'genre', 'cover_image')
     success_url = reverse_lazy('index')
 
 

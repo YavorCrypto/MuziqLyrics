@@ -119,3 +119,15 @@ footer {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
 }
+
+/* Style for edit image */
+.edit-img {
+    width: 25px; /* Adjust the width as needed */
+    height: auto; /* Maintain aspect ratio */
+}
+
+/* Style for delete image */
+.bin-img {
+    width: 25px; /* Adjust the width as needed */
+    height: auto; /* Maintain aspect ratio */
+}

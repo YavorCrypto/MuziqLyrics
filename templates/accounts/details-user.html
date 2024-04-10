@@ -9,7 +9,7 @@
             <div class="image">
                 {% if object.image %}
               <!-- Profile Image -->
-              <img src="{{object.profile_picture}}" alt="img8" />
+              <img src="{{object.image}}" alt="img8" />
                 {% else %}
                 <img src="{% static '/images/person.png' %}" alt="img8" />
                 {% endif %}
@@ -23,24 +23,25 @@
               <!-- IF the viewer is the owner of the profile -->
               <!-- Link to Edit Profile Page -->
 
-{#               {% if object.pk == request.user.pk %}#}
-{#              <a href="{% url 'edit profile' pk=object.pk %}">#}
-{#                <img#}
-{#                  class="edit-img"#}
-{#                  src="{% static '/images/edit-pen-icon-6.jpg' %}"#}
-{#                  alt="edit button"#}
-{#                />#}
-{#              </a>#}
-{##}
-{#              <!-- Link to Delete Profile Page -->#}
-{#              <a href="{% url 'delete profile' pk=object.pk%}">#}
+               {% if object.pk == request.user.pk %}
+              <a href="{% url 'account_edit' pk=object.pk %}">
+                <img
+                  class="edit-img"
+                  src="{% static '/images/edit-pen-icon-6.jpg' %}"
+                  alt="edit button"
+                />
+              </a>
+
+              <!-- Link to Delete Profile Page -->
+{#              <a href="{% url 'acc' pk=object.pk%}">#}
 {#                <img#}
 {#                  class="bin-img"#}
 {#                  src="{% static '/images/icon-remove-22.jpg' %}"#}
 {#                  alt="bin button"#}
 {#                />#}
 {#              </a>#}
-{#                {% endif %}#}
+                {% endif %}
+
               <!-- End IF the viewer is the owner of the profile -->
             </div>
             <div class="data">
