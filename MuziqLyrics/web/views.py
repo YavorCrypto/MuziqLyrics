@@ -11,3 +11,6 @@ def index(request):
         'songs': Song.objects.all()
     }
     return render(request, 'web/home_page.html', context)
+
+def contactus(request):
+    return render(request, 'web/contact_us.html')

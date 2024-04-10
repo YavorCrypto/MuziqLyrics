@@ -20,11 +20,12 @@
                     <li><a href="{% url 'account_details' pk=request.user.pk %}">Profile</a></li>
                     {% if user.account_type == 'Artist'  %}
                         <li><a href="{% url 'song_add' %}">Add Song</a></li>
-                        <li><a href="{% url 'index' %}">Add Album</a></li>
+{#                        <li><a href="{% url 'index' %}">Add Album</a></li>#}
                     {% endif %}
                 {% else %}
                     <li><a href="{% url 'account_signin' %}">Sign In</a></li>
                     <li><a href="{% url 'account_signup' %}">Sign Up</a></li>
+                    <li><a href="{% url 'contactus' %}">Contact Us</a></li>
                 {% endif %}
             </ul>
         </nav>
